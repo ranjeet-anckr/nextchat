@@ -1,0 +1,22 @@
+{
+  "[typescript]": {
+    "editor.defaultFormatter": "denoland.vscode-deno"
+  },
+  "cSpell.words": [
+    "clsx",
+    "editdata",
+    "gotrue",
+    "lucide",
+    "openai",
+    "Passwordless",
+    "supabase",
+    "tailwindcss",
+    "tanstack",
+    "typegen"
+  ],
+  "deno.enablePaths": [
+    "supabase/functions"
+  ],
+  "deno.lint": true,
+  "deno.unstable": true
+}

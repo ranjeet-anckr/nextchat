@@ -12,7 +12,6 @@ import createBillingPortalSession from '../stripe/billing-portal';
 export async function createCheckoutAction(
   formData: FormData
 ) {
-
   const priceId = formData.get('priceId') as string;
   const returnUrl = headers().get('referer') || headers().get('origin') || '';
  
@@ -20,7 +19,6 @@ export async function createCheckoutAction(
     throw new Error(`Price ID was not provided`);
   }
  
-  console.log("Hi I am Strip")
   const redirectToErrorPage = (error?: string) => {
     console.error({ error }, `Could not create Stripe Checkout session`);
  
@@ -96,7 +94,6 @@ function getTrialPeriodDays(priceId: string) {
     }
   }
 }
-
 
 
  

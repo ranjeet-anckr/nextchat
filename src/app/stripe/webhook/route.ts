@@ -135,5 +135,7 @@ async function onCheckoutCompleted(
 }
  
 function getUserIdFromClientReference(session: Stripe.Checkout.Session) {
+  console.log("subcription data bt ranjit")
+
   return session.client_reference_id as string;
 }

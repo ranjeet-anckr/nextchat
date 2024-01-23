@@ -41,10 +41,15 @@ function DashboardPage() {
               Dashboard
             </span>
           </h1>
- 
+          
           <Button>
             <Link href='dashboard/add-post'>
               Create New Post
+            </Link>
+          </Button>
+          <Button>
+            <Link href='dashboard/image-upload'>
+             Upload Image
             </Link>
           </Button>
         </div>

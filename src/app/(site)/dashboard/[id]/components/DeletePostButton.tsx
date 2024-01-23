@@ -1,5 +1,5 @@
-'use client';
- 
+
+ "use client"
 import { useCallback, useTransition } from 'react';
 import { TrashIcon } from 'lucide-react';
  
@@ -7,26 +7,29 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { deletePostAction } from '@/lib/actions/posts';
  
-async function deleteFun() {
-  console.log("i am calling")
-  
-}
+
 function DeletePostButton(
   { uid }: React.PropsWithChildren<{
     uid: string
-  }>
-) {
-  const [isPending, startTransition] = useTransition();
+  }>) {
+ const [isPending, startTransition] = useTransition();
  
-  const onDeleteRequested = useCallback(() => {
-    startTransition(async () => {
-      deleteFun()
-      // await deletePostAction(uid);
+  // const onDeleteRequested = useCallback(() => {
+  //   startTransition(async () => {
+  //     deleteFun(uid)
+
+  //     //
     
-      console.log(uid)
+  //     console.log(uid)
+  //   });
+  // }, [uid]);
+  const onConfirm = () => {
+    startTransition(async () => {
+      // await deletePostAction(uid);
+
+    
     });
-  }, [uid]);
- 
+  };
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -37,6 +40,7 @@ function DeletePostButton(
       </DialogTrigger>
  
       <DialogContent>
+        <form action={onConfirm}>
         <div className='flex space-y-4 flex-col'>
           <div>
             <b>Deleting Post</b>
@@ -52,19 +56,15 @@ function DeletePostButton(
             <Button
               variant={'destructive'}
               className='flex space-x-2'
-              disabled={isPending}
-              onClick={onDeleteRequested}
+              type='submit'
+          
             >
-              {
-                isPending ? `Deleting Post...` :
-                  <>
-                    <TrashIcon className='w-3 h-3' />
-                    <span>Yes, I want to delete this post</span>
-                  </>
-              }
+              <span>Yes, I want to delete this post</span>
+
             </Button>
           </div>
         </div>
+        </form>
       </DialogContent>
     </Dialog>
   );

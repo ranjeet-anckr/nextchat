@@ -193,6 +193,29 @@ export interface Database {
           }
         ]
       }
+      users_thresholds: {
+        Row: {
+          tokens: number
+          user_id: string
+        }
+        Insert: {
+          tokens?: number
+          user_id: string
+        }
+        Update: {
+          tokens?: number
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "users_thresholds_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: true
+            referencedRelation: "users"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
     }
     Views: {
       [_ in never]: never

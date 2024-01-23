@@ -1,3 +1,4 @@
+
 import { redirect } from "next/navigation";
 import { revalidatePath } from 'next/cache';
 import getSupabaseServerActionClient from "@/lib/supabase/action-client";
@@ -31,8 +32,10 @@ export async function createPostAction(formData: FormData) {
 
 
 export async function deletePostAction(uid: string) {
+
   const client = getSupabaseServerActionClient();
   const path = `/dashboard`;
+
   await deletePost(client, uid);
   revalidatePath(path, 'page');
   return redirect(path);

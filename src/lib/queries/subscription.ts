@@ -51,13 +51,13 @@ export const getSubscription = cache(async () => {
   }
  
   const userId = sessionResponse.data.session?.user.id;
- 
+  
   if (!userId) {
     throw new Error('User not found');
   }
  
   const { error, data } = await getUserSubscription(client, userId);
- 
+  console.log("getSubscription",data)
   if (error) {
     throw error;
   }

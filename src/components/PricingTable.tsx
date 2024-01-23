@@ -67,7 +67,7 @@ function PricingTable() {
  
                 <div className='flex items-center space-x-1'>
                   <span className='text-2xl font-bold'>
-                    Rs.{selectedPrice.price}
+                    Rs. {selectedPrice.price}
                   </span>
                   <span className='lowercase text-sm'>
                     /{selectedPrice.name}

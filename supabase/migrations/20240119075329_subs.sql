@@ -48,3 +48,16 @@ create policy "Users can only read their own customers subscriptions" on
 customers_subscriptions
   for select
     using (auth.uid () = user_id);
+
+
+
+
+  CREATE POLICY "Allow uploads" ON storage.objects FOR
+  INSERT WITH CHECK (
+    bucket_id = 'documents' AND auth.role() = 'anon'
+  );
+
+  CREATE POLICY "Allow authenticated uploads" ON storage.objects FOR
+  INSERT WITH CHECK (
+    bucket_id = 'documents' AND auth.role() = 'authenticated'
+  );
